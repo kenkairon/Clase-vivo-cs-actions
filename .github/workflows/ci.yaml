@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  ci:
+    name: CI - Analisis de Datos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descarga local de la repo
+        uses: actions/checkout@4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar pruebas unitarias
+        run: npm test
+      
+       
