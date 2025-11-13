@@ -26,3 +26,14 @@ jobs:
       - name: Analizar codigo
         run: npm run lint
 
+      - name: Subir reporte de analisis
+        if: always() # success() o failure()
+        uses: actions/upload-artifact@v4
+        with: 
+            name: cobertura-node22
+            path: coverage/
+            retention-days: 10
+            if-no-files-found: ignore
+
+        
+
