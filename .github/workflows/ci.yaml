@@ -5,15 +5,15 @@ on:
 
 jobs:
   ci:
-    name: CI - Analisis de Datos
+    name: CI - Análisis y Prueba
     runs-on: ubuntu-latest
     steps:
-      - name: Descarga local de la repo
-        uses: actions/checkout@4
+      - name: Descarga local del repo
+        uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Configurar node.js
         uses: actions/setup-node@v4
-        with:
+        with: 
           node-version: 22.x
           cache: npm
 
@@ -22,5 +22,4 @@ jobs:
 
       - name: Ejecutar pruebas unitarias
         run: npm test
-      
        
